@@ -1,0 +1,9 @@
+[package]
+name = "example"
+version = "0.1.0"
+authors = ["Tim Savage <tim@savage.company>"]
+edition = "2021"
+
+[dependencies]
+hidapi = "^1.4.1"
+maschine = { path = ".." }
