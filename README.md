@@ -1,6 +1,6 @@
 # Maschine
 
-This crate provides an interface for interacting with a Native Instruments Maschine interface over USB.
+This crate for interacting with a Native Instruments Maschine interface over USB.
 
 These devices have a large number of buttons, velocity sensitive pads, rotary encoder and Dot-matrix LCD.
 

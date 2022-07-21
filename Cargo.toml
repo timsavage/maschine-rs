@@ -2,7 +2,10 @@
 name = "maschine"
 version = "0.1.0"
 authors = ["Tim Savage <tim@savage.company>"]
-edition = "2021"
+repository = "https://github.com/timsavage/maschine-rs"
+description = "For interacting with a Native Instruments Maschine interface over USB"
+license = "MIT"
+keywords = ["hid", "usb", "maschine", "re-use"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
