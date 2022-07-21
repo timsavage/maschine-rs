@@ -2,9 +2,9 @@ use hidapi::HidDevice;
 
 use crate::colour::Colour;
 use crate::controller::Controller;
+use crate::display::{Canvas, MonochromeCanvas};
 use crate::error::Error;
 use crate::events::{Button, Direction, Event, EventContext, EventTask};
-//use crate::gui::display::{Canvas, MonochromeCanvas};
 
 const INPUT_BUFFER_SIZE: usize = 512;
 
@@ -214,11 +214,7 @@ impl MaschineMikroMk2 {
                     );
                 } else {
                     let button = self.as_device_button(btn);
-                    context.add_event(Event::ButtonChange(
-                        button,
-                        button_pressed,
-                        self.shift_pressed,
-                    ));
+                    context.add_event(Event::Button(button, button_pressed, self.shift_pressed));
                 }
             }
         }
@@ -235,7 +231,7 @@ impl MaschineMikroMk2 {
                 Direction::Up
             };
             self.encoder_value = encoder_value;
-            context.add_event(Event::EncoderChange(0, direction, self.shift_pressed));
+            context.add_event(Event::Encoder(0, direction, self.shift_pressed));
         }
 
         Ok(())
@@ -257,7 +253,7 @@ impl MaschineMikroMk2 {
             self.pads_data[pad] = value;
             if pressed | self.pads_status[pad] {
                 self.pads_status[pad] = pressed;
-                context.add_event(Event::PadChange(
+                context.add_event(Event::Pad(
                     pad as u8,
                     if pressed { (value >> 4) as u8 } else { 0 },
                     self.shift_pressed,

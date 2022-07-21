@@ -20,7 +20,7 @@ pub enum Event {
     ///
     /// Pad change (Pad Number, Velocity, Shift)
     ///
-    PadC(u8, u8, bool),
+    Pad(u8, u8, bool),
 }
 
 ///
