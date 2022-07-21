@@ -1,6 +1,7 @@
 [package]
 name = "maschine"
 version = "0.1.0"
+authors = ["Tim Savage <tim@savage.company>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -8,3 +9,7 @@ edition = "2021"
 [dependencies]
 rand = "^0.8.5"
 hidapi = "^1.4.1"
+
+
+[workspace]
+members = ["example", "tools"]

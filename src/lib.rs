@@ -1,13 +1,19 @@
 use crate::devices::MaschineMikroMk2;
 use hidapi::HidApi;
 
-pub mod colour;
-pub mod controller;
+mod colour;
+mod controller;
 pub mod devices;
-pub mod display;
-pub mod error;
-pub mod events;
+mod display;
+mod error;
+mod events;
 pub mod fonts;
+
+pub use colour::Colour;
+pub use controller::Controller;
+pub use display::{Canvas, Font, Pixel};
+pub use error::Error;
+pub use events::{Direction, Event, EventContext, EventHandler, EventTask};
 
 pub fn get_device(hid_api: &HidApi) -> Result<devices::MaschineMikroMk2, error::Error> {
     let device = hid_api
